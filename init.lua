@@ -5,7 +5,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Install package manager
--- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
 require 'config.lazy-nvim'
@@ -24,7 +23,6 @@ require 'config.nvim-setup';
 
 -- [[ Basic Keymaps ]]
 require 'config.keymaps'
-
 
 -- [[ Configure Telescope ]]
 require 'config.telescope'
