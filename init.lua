@@ -5,6 +5,9 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Install package manager
+-- Install package manager
+--    https://github.com/folke/lazy.nvim
+--    `:help lazy.nvim.txt` for more info
 require 'config.lazy-nvim'
 
 -- NOTE: Here is where you install your plugins.
