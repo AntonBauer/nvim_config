@@ -53,10 +53,9 @@ local servers = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
-  omnisharp_ls = {
-      omnisharp = {}
-    }
   },
+
+  omnisharp = {}
 }
 
 -- Setup neovim lua configuration
