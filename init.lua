@@ -18,23 +18,7 @@ require('lazy').setup({
   require 'plugins.plugins',
 }, {})
 
--- [[ Basic Setup ]]
-require 'config.nvim-setup';
-
--- [[ Basic Keymaps ]]
-require 'config.keymaps'
-
--- [[ Configure Telescope ]]
-require 'config.telescope'
-
--- [[ Configure Treesitter ]]
-require 'config.treesitter'
-
--- [[ Configure LSP ]]
-require 'config.lsp'
-
--- [[ Configure nvim-cmp ]]
-require 'config.cmp'
+require 'config.configuration'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
