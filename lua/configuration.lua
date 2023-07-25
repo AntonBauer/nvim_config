@@ -11,7 +11,7 @@ require 'config.telescope'
 require 'config.treesitter'
 
 -- [[ Configure LSP ]]
-require 'config.lsp'
+-- require 'config-lsp'
 
 --[[ Configure Omnisharp]]
 require 'config.omnisharp'

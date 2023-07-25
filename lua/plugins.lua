@@ -8,10 +8,11 @@ return {
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-  require 'plugins.lsp',
+  require 'lsp',
   require 'plugins.cmp',
   require 'plugins.ui',
   require 'plugins.telescope',
   require 'plugins.treesitter',
-  require 'plugins.omnisharp'
+  
+  require 'plugins.languages.csharp'
 }

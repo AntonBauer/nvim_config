@@ -15,10 +15,10 @@ require 'config.lazy-nvim'
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
-  require 'plugins.plugins',
+  require 'plugins',
 }, {})
 
-require 'config.configuration'
+require 'configuration'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
