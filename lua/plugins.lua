@@ -9,7 +9,7 @@ return {
   { 'numToStr/Comment.nvim', opts = {} },
 
   require 'lsp',
-  require 'cmp-plugins',
+  require 'completion',
   require 'plugins.ui',
   require 'plugins.telescope',
   require 'plugins.treesitter',

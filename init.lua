@@ -9,11 +9,6 @@ vim.g.maplocalleader = ' '
 --    `:help lazy.nvim.txt` for more info
 require 'lazy-nvim'
 
--- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
---
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
 require('lazy').setup({
   require 'plugins',
 }, {})

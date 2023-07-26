@@ -1,5 +1,5 @@
 -- [[ Basic Setup ]]
-require 'config.nvim-setup';
+require 'nvim-setup';
 
 -- [[ Basic Keymaps ]]
 require 'keymaps'
