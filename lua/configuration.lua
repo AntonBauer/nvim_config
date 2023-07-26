@@ -15,6 +15,3 @@ require 'config.treesitter'
 
 --[[ Configure Omnisharp]]
 require 'config.omnisharp'
-
--- [[ Configure nvim-cmp ]]
-require 'config.cmp'
