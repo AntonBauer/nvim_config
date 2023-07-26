@@ -2,7 +2,7 @@
 require 'config.nvim-setup';
 
 -- [[ Basic Keymaps ]]
-require 'config.keymaps'
+require 'keymaps'
 
 -- [[ Configure Telescope ]]
 require 'config.telescope'

@@ -9,10 +9,10 @@ return {
   { 'numToStr/Comment.nvim', opts = {} },
 
   require 'lsp',
-  require 'plugins.cmp',
+  require 'cmp-plugins',
   require 'plugins.ui',
   require 'plugins.telescope',
   require 'plugins.treesitter',
-  
+
   require 'plugins.languages.csharp'
 }
