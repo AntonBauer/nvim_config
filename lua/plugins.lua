@@ -10,7 +10,7 @@ return {
 
   require 'lsp',
   require 'completion',
-  require 'plugins.ui',
+  require 'ui',
   require 'plugins.telescope',
   require 'plugins.treesitter',
 
