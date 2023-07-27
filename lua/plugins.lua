@@ -14,5 +14,8 @@ return {
   require 'plugins.telescope',
   require 'plugins.treesitter',
 
-  require 'languages.csharp.lsp'
+  require 'languages.csharp.lsp',
+
+  -- require 'debug',
+  require 'autoformat'
 }
