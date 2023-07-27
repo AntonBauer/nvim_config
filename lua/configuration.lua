@@ -10,8 +10,5 @@ require 'config.telescope'
 -- [[ Configure Treesitter ]]
 require 'config.treesitter'
 
--- [[ Configure LSP ]]
--- require 'config-lsp'
-
 --[[ Configure Omnisharp]]
-require 'config.omnisharp'
+require 'languages.csharp.config'
