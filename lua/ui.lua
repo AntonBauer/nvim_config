@@ -7,6 +7,7 @@
       vim.cmd.colorscheme 'onedark'
     end
     },
+
     {
       -- Set lualine as statusline
       'nvim-lualine/lualine.nvim',
@@ -31,5 +32,9 @@
         char = '┊',
         show_trailing_blankline_indent = false,
       }
+    },
+
+    {
+      'nvim-tree/nvim-web-devicons'
     }
   }
