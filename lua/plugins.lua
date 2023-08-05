@@ -8,6 +8,7 @@ return {
   { 'numToStr/Comment.nvim', opts = {} },
 
   require 'plugins.lsp',
+  require 'plugins.debug',
   require 'plugins.cmp',
   require 'plugins.gitsigns',
   require 'plugins.theme',
