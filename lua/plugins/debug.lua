@@ -32,6 +32,24 @@ return {
       },
     }
 
+    -- DAP setup for DotNet
+    dap.adapters.coreclr = {
+      type = 'executable',
+      command = '/home/anton_bauer/.local/share/nvim/mason/packages/netcoredbg/netcoredbg',
+      args = {'--interpreter=vscode'}
+    }
+
+    dap.configurations.cs = {
+      {
+        type = 'coreclr',
+        name = 'Launch debug',
+        request = 'launch',
+        program = function ()
+         return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug', 'file')
+        end
+      }
+    }
+
     -- Basic debugging keymaps, feel free to change to your liking!
     vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
     vim.keymap.set('n', '<F11>', dap.step_into, { desc = 'Debug: Step Into' })
