@@ -7,21 +7,19 @@ return {
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
+  -- Languages/dev
   require 'plugins.lsp',
   require 'plugins.debug',
+  require 'plugins.testing',
   require 'plugins.cmp',
+  require 'plugins.treesitter',
+
+  -- Appearance
   require 'plugins.gitsigns',
   require 'plugins.theme',
   require 'plugins.status-line',
   require 'plugins.indent-guides',
-  require 'plugins.telescope-fzf',
 
-  {
-    -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ':TSUpdate',
-  },
+  -- Telescope extensions
+  require 'plugins.telescope-fzf'
 }
