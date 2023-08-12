@@ -45,7 +45,11 @@ return {
         name = 'Launch debug',
         request = 'launch',
         program = function ()
-         return vim.fn.input('Path to dll', vim.fn.getcwd(), 'file')
+          -- find all RUNNABLE projects
+          -- find dlls for those projects
+          -- prompt to select dll from list
+         -- return vim.fn.input('Path to dll', vim.fn.getcwd(), 'file')
+        return vim.fn.browsedir('Select dll to debug', vim.fn.getcwd())
         end
       }
     }

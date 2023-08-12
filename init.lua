@@ -6,7 +6,6 @@ vim.g.maplocalleader = ' '
 
 require 'lazy-install'
 require('lazy').setup({
-  -- NOTE: Here is where you install your plugins.
   require 'plugins'
 }, {})
 
