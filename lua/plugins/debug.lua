@@ -45,10 +45,10 @@ return {
         name = 'Launch debug',
         request = 'launch',
         program = function ()
-          -- find all RUNNABLE projects
-          -- find dlls for those projects
-          -- prompt to select dll from list
-         -- return vim.fn.input('Path to dll', vim.fn.getcwd(), 'file')
+          local dotnet = require 'scripts.dotnet'
+          local runnable_dlls = dotnet.find_runnable_dlls(vim.fn.getcwd())
+          vim.fn.printf(runnable_dlls)
+
         return vim.fn.browsedir('Select dll to debug', vim.fn.getcwd())
         end
       }
