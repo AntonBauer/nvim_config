@@ -1,22 +1,17 @@
-local runnable_project_types = {'exe'}
 
-function find_runnable_dlls(root_dir)
-  local project_file_paths = vim.fn.globpath(root_dir .. '/**', '*.csproj')
-  local runnable_project_paths = filter_runnable_projects(project_file_paths)
-  return find_corresponding_dlls(runnable_project_paths);
+local function is_web(line)
+  return vim.fn.match('<Project Sdk="Microsoft.NET.Sdk.Web">', line) ~= -1
 end
 
-function filter_runnable_projects(project_files_paths)
-  for i = 1, #project_files_paths do
-    local project_file_path = project_files_paths[i]
-    local is_runnable = is_runnable_project(project_file_path)
-  end
+local function is_exe(line)
+  return vim.fn.match('<OutputType>Exe</OutputType>', line) ~= -1
 end
 
-function find_corresponding_dlls(runnable_projects_pahts)
+local function is_test(line)
+  return vim.fn.match('<IsTestProject>true</IsTestProject>', line) ~= -1
 end
 
-function is_runnable_project(project_path)
+local function is_runnable_project(project_path)
   local content = vim.fn.readfile(project_path)
 
   for l = 1, #content do
@@ -30,10 +25,23 @@ function is_runnable_project(project_path)
   return false;
 end
 
-function is_web(line)
-  return vim.fn.match('<Project Sdk="Microsoft.NET.Sdk.Web">', line) ~= -1
+local function find_corresponding_dlls(runnable_projects_paths)
+
 end
 
-function is_exe(line)
-  return vim.fn.match('<OutputType>Exe</OutputType>', line) ~= -1
+local function filter_runnable_projects(project_files_paths)
+  for i = 1, #project_files_paths do
+    local project_file_path = project_files_paths[i]
+    local is_runnable = is_runnable_project(project_file_path)
+  end
 end
+
+function find_runnable_dlls(root_dir)
+  local project_file_paths = vim.fn.globpath(root_dir .. '/**', '*.csproj')
+  local runnable_project_paths = filter_runnable_projects(project_file_paths)
+
+  return find_corresponding_dlls(runnable_project_paths);
+end
+
+
+
