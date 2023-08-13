@@ -30,10 +30,19 @@ local function find_corresponding_dlls(runnable_projects_paths)
 end
 
 local function filter_runnable_projects(project_files_paths)
+  local runnable_projects = {}
+  local runnable_proj_index = 1
+
   for i = 1, #project_files_paths do
     local project_file_path = project_files_paths[i]
-    local is_runnable = is_runnable_project(project_file_path)
+
+    if is_runnable_project(project_file_path) then
+      runnable_projects[runnable_proj_index] = project_file_path
+      runnable_proj_index = runnable_proj_index + 1;
+    end
   end
+
+  return runnable_projects
 end
 
 function find_runnable_dlls(root_dir)
