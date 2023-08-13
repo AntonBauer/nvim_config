@@ -26,7 +26,17 @@ local function is_runnable_project(project_path)
 end
 
 local function find_corresponding_dlls(runnable_projects_paths)
+  local runnable_dll_paths = {}
 
+  for i = 1, #runnable_projects_paths do
+    local folder = vim.fn.fnamemodify(runnable_projects_paths[i], ':p:h')
+    local file_name = vim.fn.fnamemodify(runnable_projects_paths[i], ':r')
+
+    local dll_filename = vim.fn.globpath(folder, file_name .. '.dll')[1]
+    runnable_dll_paths[i] = dll_filename
+  end
+
+  return runnable_dll_paths
 end
 
 local function filter_runnable_projects(project_files_paths)
