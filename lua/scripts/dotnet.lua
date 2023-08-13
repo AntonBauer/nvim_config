@@ -1,3 +1,4 @@
+local dotnet = {}
 
 local function is_web(line)
   return vim.fn.match('<Project Sdk="Microsoft.NET.Sdk.Web">', line) ~= -1
@@ -55,12 +56,11 @@ local function filter_runnable_projects(project_files_paths)
   return runnable_projects
 end
 
-function find_runnable_dlls(root_dir)
+dotnet.find_runnable_dlls = function(root_dir)
   local project_file_paths = vim.fn.globpath(root_dir .. '/**', '*.csproj')
   local runnable_project_paths = filter_runnable_projects(project_file_paths)
 
   return find_corresponding_dlls(runnable_project_paths);
 end
 
-
-
+return dotnet
