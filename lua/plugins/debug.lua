@@ -15,6 +15,7 @@ return {
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+    local dotnet = require 'scripts.dotnet'
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -45,7 +46,6 @@ return {
         name = 'Launch debug',
         request = 'launch',
         program = function ()
-          local dotnet = require 'scripts.dotnet'
           local runnable_dlls = dotnet.find_runnable_dlls(vim.fn.getcwd())
           vim.fn.printf(runnable_dlls)
 
