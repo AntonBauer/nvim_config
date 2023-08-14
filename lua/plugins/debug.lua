@@ -47,9 +47,8 @@ return {
         program = function ()
           local dotnet = require 'scripts.dotnet'
           local runnable_dlls = dotnet.find_runnable_dlls(vim.fn.getcwd())
-          vim.fn.printf(runnable_dlls)
 
-          return vim.fn.browsedir('Select dll to debug', vim.fn.getcwd())
+          return vim.fn.inputlist(runnable_dlls)
         end
       }
     }

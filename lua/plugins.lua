@@ -7,6 +7,9 @@ return {
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
+  -- Vertical/Horizontal text move
+  {'fedepujol/move.nvim'},
+
   -- Languages/dev
   require 'plugins.lsp',
   require 'plugins.debug',
