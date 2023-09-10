@@ -35,7 +35,7 @@ return {
     -- DAP setup for DotNet
     dap.adapters.coreclr = {
       type = 'executable',
-      command = '/home/anton_bauer/.local/share/nvim/mason/packages/netcoredbg/netcoredbg',
+      command = vim.fn.stdpath('data') .. '/mason/packages/netcoredbg/netcoredbg',
       args = {'--interpreter=vscode'}
     }
 

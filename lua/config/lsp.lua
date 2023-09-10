@@ -58,6 +58,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  omnisharp = {}
 }
 
 -- Setup neovim lua configuration
