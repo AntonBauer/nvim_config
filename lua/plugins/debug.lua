@@ -46,9 +46,13 @@ return {
         request = 'launch',
         program = function ()
           local dotnet = require 'scripts.dotnet'
-          local runnable_dlls = dotnet.find_runnable_dlls(vim.fn.getcwd())
+          local helpers = require 'scripts.helpers'
 
-          return vim.fn.inputlist(runnable_dlls)
+          local runnable_dlls = dotnet.find_runnable_dlls(vim.fn.getcwd())
+          local display_dlls = helpers.to_display_list(runnable_dlls)
+          local selectedProject = vim.fn.inputlist(display_dlls);
+
+          return runnable_dlls[selectedProject]
         end
       }
     }
