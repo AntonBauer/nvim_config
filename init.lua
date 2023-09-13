@@ -17,7 +17,7 @@ require 'config.telescope'
 require 'config.treesitter'
 require 'config.lsp'
 require 'config.cmp'
--- require 'config.testing'
+require 'config.testing'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

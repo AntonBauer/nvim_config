@@ -13,7 +13,7 @@ return {
   -- Languages/dev
   require 'plugins.lsp',
   require 'plugins.debug',
-  -- require 'plugins.testing',
+  require 'plugins.testing',
   require 'plugins.cmp',
   require 'plugins.treesitter',
 
