@@ -16,11 +16,11 @@ require 'config.telescope'
 require 'config.treesitter'
 require 'config.lsp'
 require 'config.cmp'
-require 'config.testing'
 
 -- NeoVim ToDos:
   -- format on save
   -- plugin installation and configuration in one place
+  -- keymaps in one place
 
 -- DotNet ToDos:
   -- Auto usings/Import missing usings
