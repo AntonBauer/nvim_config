@@ -12,12 +12,21 @@ require('lazy').setup({
 require 'nvim-options'
 require 'keymaps'
 
-require 'config.theme'
 require 'config.telescope'
 require 'config.treesitter'
 require 'config.lsp'
 require 'config.cmp'
 require 'config.testing'
+
+-- NeoVim ToDos:
+  -- format on save
+  -- plugin installation and configuration in one place
+
+-- DotNet ToDos:
+  -- Auto usings/Import missing usings
+  -- code snippets
+  -- refactorings?
+  -- sane formatting defaults
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
