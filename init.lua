@@ -12,11 +12,8 @@ require('lazy').setup({
 require 'nvim-options'
 require 'keymaps'
 
-require 'config.lsp'
-
 -- NeoVim ToDos:
   -- format on save
-  -- plugin installation and configuration in one place
   -- keymaps in one place
 
 -- DotNet ToDos:
