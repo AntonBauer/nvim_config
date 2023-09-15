@@ -14,7 +14,6 @@ require 'keymaps'
 
 -- NeoVim ToDos:
   -- format on save
-  -- keymaps in one place
 
 -- DotNet ToDos:
   -- Auto usings/Import missing usings
