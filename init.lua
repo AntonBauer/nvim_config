@@ -12,7 +12,6 @@ require('lazy').setup({
 require 'nvim-options'
 require 'keymaps'
 
-require 'config.treesitter'
 require 'config.lsp'
 require 'config.cmp'
 
