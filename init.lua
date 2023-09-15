@@ -13,7 +13,6 @@ require 'nvim-options'
 require 'keymaps'
 
 require 'config.lsp'
-require 'config.cmp'
 
 -- NeoVim ToDos:
   -- format on save
