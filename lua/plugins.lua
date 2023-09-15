@@ -1,8 +1,6 @@
 return {
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -10,6 +8,7 @@ return {
   -- Vertical/Horizontal text move
   {'fedepujol/move.nvim'},
 
+  require 'plugins.which-key',
   -- Languages/dev
   require 'plugins.lsp',
   require 'plugins.debug',
