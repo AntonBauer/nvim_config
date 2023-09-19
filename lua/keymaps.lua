@@ -7,39 +7,21 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Open file explorer in working directory
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
-
--- [[ Move selections ]]
-local opts = { noremap = true, silent = true }
-
--- Normal-mode commands
-vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>', opts)
-vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>', opts)
-vim.keymap.set('n', '<A-h>', ':MoveHChar(-1)<CR>', opts)
-vim.keymap.set('n', '<A-l>', ':MoveHChar(1)<CR>', opts)
-vim.keymap.set('n', '<leader>wf', ':MoveWord(1)<CR>', opts)
-vim.keymap.set('n', '<leader>wb', ':MoveWord(-1)<CR>', opts)
-
--- Visual-mode commands
-vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', opts)
-vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', opts)
-vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', opts)
-vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', opts)
-
 -- [[ Treesitter keymaps ]]
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 local which_key = require('which-key')
 local telescope_buildin = require('telescope.builtin')
 local telescope_scripts = require('scripts.telescope')
 
+local text_move = require('move');
+
 which_key.register({
   ['<leader>'] = {
+    -- [[ Telescope mappings ]]
     ['<space>'] = { telescope_buildin.oldfiles, '[ ] Find existing buffers' },
     ['/'] = { telescope_scripts.fuzzy_search_buffer, '[/] Fuzzily search in current buffer' },
     ['?'] = { telescope_buildin.oldfiles, '[?] Find recently opened files' },
@@ -52,6 +34,26 @@ which_key.register({
       g = { telescope_buildin.live_grep, '[S]earch by [G]rep' },
       h = { telescope_buildin.help_tags, '[S]earch [H]elp' },
       w = { telescope_buildin.grep_string, '[S]earch [G]rep' },
+    },
+
+    -- [[ Misc mappings ]]
+    o = {
+      x = { vim.cmd.Ex, '[O]pen file e[X]plorer' }
     }
-  }
+  },
+
+  -- [[ Text move mappings ]]
+  ['<A-j>'] = { function() text_move.MoveLine(1) end, 'Move current line one line down' },
+  ['<A-k>'] = { function() text_move.MoveLine(-1) end, 'Move current line one line up' },
+  ['<A-h>'] = { function() text_move.MoveHChar(-1) end, 'Move current char one symbol left' },
+  ['<A-l>'] = { function() text_move.MoveHChar(1) end, 'Move current char one symbol right' },
 })
+
+-- [[ Move selections ]]
+local opts = { noremap = true, silent = true }
+
+-- Visual-mode commands
+vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', opts)
+vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', opts)
+vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', opts)
+vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', opts)
