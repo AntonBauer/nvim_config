@@ -8,12 +8,7 @@ local is_exe = function(line)
   return vim.fn.match('<OutputType>Exe</OutputType>', line) ~= -1
 end
 
-local is_test = function(line)
-  return vim.fn.match('<IsTestProject>true</IsTestProject>', line) ~= -1
-end
-
 -- Check if specified project is runnable
--- aka is .exe or web app
 local is_runnable_project = function(project_path)
   local content = vim.fn.readfile(project_path)
 
@@ -38,7 +33,6 @@ local find_dlls_for_projects = function (runnable_projects_paths)
     table.insert(corresponding_dlls, dll_filename)
   end
 
-  print(vim.inspect(corresponding_dlls))
   return corresponding_dlls
 end
 
@@ -53,16 +47,27 @@ local filter_runnable_projects = function(project_files_paths)
     end
   end
 
-  print(vim.inspect(runnable_projects))
   return runnable_projects
 end
 
 -- Search for all runnable csproj in specified directory
-dotnet.find_runnable_dlls = function(root_dir)
+local find_runnable_dlls = function(root_dir)
   local project_file_paths = vim.fn.split(vim.fn.globpath(root_dir .. '/**', '*.csproj'), '\n')
   local runnable_project_paths = filter_runnable_projects(project_file_paths)
 
   return find_dlls_for_projects(runnable_project_paths);
+end
+
+dotnet.start_debug = function ()
+  local helpers = require 'scripts.helpers'
+
+  vim.fn.system { 'dotnet', 'build' }
+
+  local runnable_dlls = find_runnable_dlls(vim.fn.getcwd())
+  local display_dlls = helpers.to_display_list(runnable_dlls)
+  local selectedProject = vim.fn.inputlist(display_dlls);
+
+  return runnable_dlls[selectedProject]
 end
 
 return dotnet
