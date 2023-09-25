@@ -6,9 +6,11 @@ return {
   { 'numToStr/Comment.nvim', opts = {} },
 
   -- Vertical/Horizontal text move
-  {'fedepujol/move.nvim'},
+  'fedepujol/move.nvim',
 
+  -- Keymaps documentation
   require 'plugins.which-key',
+
   -- Languages/dev
   require 'plugins.lsp',
   require 'plugins.debug',
@@ -22,6 +24,6 @@ return {
   require 'plugins.status-line',
   require 'plugins.indent-guides',
 
-  -- Telescope extensions
+  -- Telescope files finder
   require 'plugins.telescope-fzf'
 }

@@ -12,9 +12,8 @@ local text_move = require('move')
 local dap = require('dap')
 local dapui = require('dapui')
 
--- [[ Normal mode ]] 
+-- [[ Telescope mappings ]]
 which_key.register({
-  -- [[ Telescope mappings ]]
   ['<leader>'] = {
     ['<space>'] = { telescope_buildin.oldfiles, '[ ] Find existing buffers' },
     ['/'] = { telescope_scripts.fuzzy_search_buffer, '[/] Fuzzily search in current buffer' },
@@ -30,19 +29,24 @@ which_key.register({
       w = { telescope_buildin.grep_string, '[S]earch [G]rep' },
     },
   },
+})
 
-  -- [[ Misc mappings ]]
-  ['<leader>o'] = {
-    x = { vim.cmd.Ex, '[O]pen file e[X]plorer' }
-  },
-
-  -- [[ Text move mappings ]]
+-- [[ Text move mappings ]]
+which_key.register({
   ['<A-j>'] = { function() text_move.MoveLine(1) end, 'Move current line one line down', noremap=true },
   ['<A-k>'] = { function() text_move.MoveLine(-1) end, 'Move current line one line up', noremap=true },
   ['<A-h>'] = { function() text_move.MoveHChar(-1) end, 'Move current char one symbol left', noremap=true },
   ['<A-l>'] = { function() text_move.MoveHChar(1) end, 'Move current char one symbol right', noremap=true },
+})
+-- [[ Move selections ]]
+local opts = { noremap = true, silent = true }
+vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', opts)
+vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', opts)
+vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', opts)
+vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', opts)
 
-  -- [[ Debug mappings ]]
+-- [[ Debug mappings ]]
+which_key.register({
   ['<F3>'] = { dap.step_out, 'Debug: Step Out' },
   ['<F5>'] = { dap.continue, 'Debug: Start/Continue' },
   ['<F7>'] = { dapui.toggle, 'Debug: See last session result' },
@@ -52,13 +56,12 @@ which_key.register({
   ['F11'] = { dap.step_into, 'Debug: Step into' },
 })
 
--- [[ Visual mode ]]
+-- [[ Misc mappints ]]
 which_key.register({
+  ['<leader>'] = {
+    o = {
+      x = { vim.cmd.Ex, '[O]pen file e[X]plorer' }
+    }
+  }
 })
 
--- [[ Move selections ]]
-local opts = { noremap = true, silent = true }
-vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', opts)
-vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', opts)
-vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', opts)
-vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', opts)
