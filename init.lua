@@ -6,7 +6,7 @@ vim.g.maplocalleader = ' '
 
 require 'lazy-install'
 require('lazy').setup({
-  require 'plugins'
+  require('plugins')
 }, {})
 
 require 'nvim-options'
