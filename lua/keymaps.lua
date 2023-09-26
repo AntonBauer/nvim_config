@@ -33,6 +33,7 @@ which_key.register({
 
 -- [[ Text move mappings ]]
 which_key.register({
+  name = 'Text move',
   ['<A-j>'] = { function() text_move.MoveLine(1) end, 'Move current line one line down', noremap=true },
   ['<A-k>'] = { function() text_move.MoveLine(-1) end, 'Move current line one line up', noremap=true },
   ['<A-h>'] = { function() text_move.MoveHChar(-1) end, 'Move current char one symbol left', noremap=true },
@@ -47,6 +48,7 @@ vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', opts)
 
 -- [[ Debug mappings ]]
 which_key.register({
+  name = 'Debug',
   ['<F3>'] = { dap.step_out, 'Debug: Step Out' },
   ['<F5>'] = { dap.continue, 'Debug: Start/Continue' },
   ['<F7>'] = { dapui.toggle, 'Debug: See last session result' },
@@ -58,6 +60,7 @@ which_key.register({
 
 -- [[ Misc mappints ]]
 which_key.register({
+  name = 'Misc mappings',
   ['<leader>'] = {
     o = {
       x = { vim.cmd.Ex, '[O]pen file e[X]plorer' }
