@@ -52,10 +52,10 @@ which_key.register({
   ['<F3>'] = { dap.step_out, 'Debug: Step Out' },
   ['<F5>'] = { dap.continue, 'Debug: Start/Continue' },
   ['<F7>'] = { dapui.toggle, 'Debug: See last session result' },
-  ['<F9>'] = { dap.toggle_breakpoint, 'Debug: Toggle Breakpoint' },
-  ['<leader><F9>'] = { function() dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ') end, 'Debug: Set conditional Breakpoint' },
+  ['<leager>tb'] = { dap.toggle_breakpoint, 'Debug: [T]oggle [B]reakpoint' },
+  ['<leader>cb'] = { function() dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ') end, 'Debug: Set [C]onditional [B]reakpoint' },
   ['<F10>'] = { dap.step_over, 'Debug: Step Over' },
-  ['F11'] = { dap.step_into, 'Debug: Step into' },
+  ['<F11>'] = { dap.step_into, 'Debug: Step into' },
 })
 
 -- [[ Misc mappints ]]
