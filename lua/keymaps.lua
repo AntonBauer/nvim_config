@@ -34,17 +34,17 @@ which_key.register({
 -- [[ Text move mappings ]]
 which_key.register({
   name = 'Text move',
-  ['<A-j>'] = { function() text_move.MoveLine(1) end, 'Move current line one line down', noremap=true },
-  ['<A-k>'] = { function() text_move.MoveLine(-1) end, 'Move current line one line up', noremap=true },
-  ['<A-h>'] = { function() text_move.MoveHChar(-1) end, 'Move current char one symbol left', noremap=true },
-  ['<A-l>'] = { function() text_move.MoveHChar(1) end, 'Move current char one symbol right', noremap=true },
+  ['<A-j>'] = { function() text_move.MoveLine(1) end, 'Move current line one line down' },
+  ['<A-k>'] = { function() text_move.MoveLine(-1) end, 'Move current line one line up' },
+  ['<A-h>'] = { function() text_move.MoveHChar(-1) end, 'Move current char one symbol left' },
+  ['<A-l>'] = { function() text_move.MoveHChar(1) end, 'Move current char one symbol right' },
 })
--- [[ Move selections ]]
-local opts = { noremap = true, silent = true }
-vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', opts)
-vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', opts)
-vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', opts)
-vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', opts)
+
+which_key.register({
+  name = 'Text move <Visual>',
+  ['<A-j>'] = { ':MoveBlock(1)<cr>', 'Move current selection one line down', mode = 'v' },
+  ['<A-k>'] = { ':MoveBlock(-1)<cr>', 'Move current selection one line up', mode = 'v' }
+})
 
 -- [[ Debug mappings ]]
 which_key.register({
@@ -53,7 +53,8 @@ which_key.register({
   ['<F5>'] = { dap.continue, 'Debug: Start/Continue' },
   ['<F7>'] = { dapui.toggle, 'Debug: See last session result' },
   ['<leager>tb'] = { dap.toggle_breakpoint, 'Debug: [T]oggle [B]reakpoint' },
-  ['<leader>cb'] = { function() dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ') end, 'Debug: Set [C]onditional [B]reakpoint' },
+  ['<leader>cb'] = { function() dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ') end,
+    'Debug: Set [C]onditional [B]reakpoint' },
   ['<F10>'] = { dap.step_over, 'Debug: Step Over' },
   ['<F11>'] = { dap.step_into, 'Debug: Step into' },
 })
@@ -67,4 +68,3 @@ which_key.register({
     }
   }
 })
-
