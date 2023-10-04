@@ -11,4 +11,8 @@ helpers.to_display_list = function(original_list)
   return display_list
 end
 
+helpers.workspace_list_folders = function()
+  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+end
+
 return helpers
